@@ -322,11 +322,6 @@ const Index = () => {
             </div>
           </ScreenWrapper>
         )}
-        {view === "choose" && step === 7 && (
-          <ScreenWrapper key="complete">
-            <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
-          </ScreenWrapper>
-        )}
       </AnimatePresence>
     </div>
   );
