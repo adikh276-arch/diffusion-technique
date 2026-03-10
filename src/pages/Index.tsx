@@ -30,9 +30,6 @@ const Index = () => {
 
   const finishExercise = (technique: string) => {
     addHistory({ technique, thought, reflection });
-    reset();
-    setView("choose");
-    setStep(7);
   };
 
   const renderNav = () => (
@@ -122,7 +119,7 @@ const Index = () => {
           )}
           {step === 5 && (
             <ScreenWrapper key="sky5">
-              <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
+              <SkyConclusion onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
@@ -209,7 +206,7 @@ const Index = () => {
           )}
           {step === 5 && (
             <ScreenWrapper key="sell5">
-              <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
+              <SellConclusion onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
@@ -219,7 +216,7 @@ const Index = () => {
 
   // NAME THE STORY EXERCISE
   if (view === "name") {
-    const totalSteps = 4;
+    const totalSteps = 5;
     return (
       <div className="min-h-screen py-8" style={{ background: "linear-gradient(180deg, #EEF2FF, #E6F4FF)" }}>
         {renderNav()}
@@ -271,11 +268,13 @@ const Index = () => {
                 <p className="text-base text-muted-foreground text-justify mb-2">Next time this thought appears, try saying:</p>
                 <p className="text-base font-medium text-foreground text-center my-4 italic">"I'm noticing my mind telling the {storyName} again."</p>
                 <p className="text-base text-muted-foreground text-justify mb-6">This small shift helps you step back from the thought.</p>
-                <div className="space-y-3">
-                  <PrimaryButton onClick={() => { finishExercise("Name the Story"); }}>Try Another Technique</PrimaryButton>
-                  <PrimaryButton variant="outline" onClick={() => { reset(); setView("intro"); }}>Back to Techniques</PrimaryButton>
-                </div>
+                <PrimaryButton onClick={() => { finishExercise("Name the Story"); setStep(5); }}>Finish Exercise</PrimaryButton>
               </ActivityCard>
+            </ScreenWrapper>
+          )}
+          {step === 5 && (
+            <ScreenWrapper key="name5">
+              <NameConclusion storyName={storyName} onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
@@ -320,27 +319,56 @@ const Index = () => {
             </div>
           </ScreenWrapper>
         )}
-        {view === "choose" && step === 7 && (
-          <ScreenWrapper key="complete">
-            <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
-          </ScreenWrapper>
-        )}
       </AnimatePresence>
     </div>
   );
 };
 
-function CompletionScreen({ onTryAnother, onHome }: { onTryAnother: () => void; onHome: () => void }) {
+function SkyConclusion({ onTryAnother, onHome }: { onTryAnother: () => void; onHome: () => void }) {
   return (
     <ActivityCard>
-      <div className="text-center mb-4"><span className="text-5xl">✨</span></div>
-      <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">Nice Work</h1>
-      <p className="text-base text-muted-foreground text-justify mb-2">Thoughts come and go just like clouds.</p>
-      <p className="text-base text-muted-foreground text-justify mb-2">The more you practice observing them, the less power they have over you.</p>
-      <p className="text-base text-muted-foreground text-justify mb-6">You just practiced diffusion.</p>
+      <div className="text-center mb-4"><span className="text-5xl">☁️✨</span></div>
+      <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">The Thought Drifted Away</h1>
+      <p className="text-base text-muted-foreground text-justify mb-2">Thoughts are like clouds in the sky.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">They appear, move across our mind, and eventually pass.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">You practiced watching the thought instead of holding onto it.</p>
+      <p className="text-base text-muted-foreground text-justify mb-6">The more you practice this, the easier it becomes to let thoughts come and go.</p>
       <div className="space-y-3">
         <PrimaryButton onClick={onTryAnother}>Try Another Technique</PrimaryButton>
-        <PrimaryButton variant="outline" onClick={onHome}>Back to Home</PrimaryButton>
+        <PrimaryButton variant="outline" onClick={onHome}>Back to Techniques</PrimaryButton>
+      </div>
+    </ActivityCard>
+  );
+}
+
+function SellConclusion({ onTryAnother, onHome }: { onTryAnother: () => void; onHome: () => void }) {
+  return (
+    <ActivityCard>
+      <div className="text-center mb-4"><span className="text-5xl">💰✨</span></div>
+      <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">You Questioned the Thought</h1>
+      <p className="text-base text-muted-foreground text-justify mb-2">Not every thought that appears in our mind deserves our attention.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">By evaluating its value, you practiced stepping back and questioning the thought instead of automatically believing it.</p>
+      <p className="text-base text-muted-foreground text-justify mb-6">Sometimes thoughts sound convincing — but they aren't always worth buying.</p>
+      <div className="space-y-3">
+        <PrimaryButton onClick={onTryAnother}>Try Another Technique</PrimaryButton>
+        <PrimaryButton variant="outline" onClick={onHome}>Back to Techniques</PrimaryButton>
+      </div>
+    </ActivityCard>
+  );
+}
+
+function NameConclusion({ storyName, onTryAnother, onHome }: { storyName: string; onTryAnother: () => void; onHome: () => void }) {
+  return (
+    <ActivityCard>
+      <div className="text-center mb-4"><span className="text-5xl">📖✨</span></div>
+      <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">You Named the Story</h1>
+      <p className="text-base text-muted-foreground text-justify mb-2">Our minds often repeat the same stories again and again.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">By giving the thought a name, you practiced recognizing the story instead of getting caught in it.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">Next time it appears, you can simply notice:</p>
+      <p className="text-base font-medium text-foreground text-center my-4 italic">"There goes the {storyName} again."</p>
+      <div className="space-y-3">
+        <PrimaryButton onClick={onTryAnother}>Try Another Technique</PrimaryButton>
+        <PrimaryButton variant="outline" onClick={onHome}>Back to Techniques</PrimaryButton>
       </div>
     </ActivityCard>
   );
