@@ -271,11 +271,13 @@ const Index = () => {
                 <p className="text-base text-muted-foreground text-justify mb-2">Next time this thought appears, try saying:</p>
                 <p className="text-base font-medium text-foreground text-center my-4 italic">"I'm noticing my mind telling the {storyName} again."</p>
                 <p className="text-base text-muted-foreground text-justify mb-6">This small shift helps you step back from the thought.</p>
-                <div className="space-y-3">
-                  <PrimaryButton onClick={() => { finishExercise("Name the Story"); }}>Try Another Technique</PrimaryButton>
-                  <PrimaryButton variant="outline" onClick={() => { reset(); setView("intro"); }}>Back to Techniques</PrimaryButton>
-                </div>
+                <PrimaryButton onClick={() => { finishExercise("Name the Story"); setStep(5); }}>Finish Exercise</PrimaryButton>
               </ActivityCard>
+            </ScreenWrapper>
+          )}
+          {step === 5 && (
+            <ScreenWrapper key="name5">
+              <NameConclusion storyName={storyName} onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
