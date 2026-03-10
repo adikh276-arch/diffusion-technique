@@ -122,7 +122,7 @@ const Index = () => {
           )}
           {step === 5 && (
             <ScreenWrapper key="sky5">
-              <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
+              <SkyConclusion onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
