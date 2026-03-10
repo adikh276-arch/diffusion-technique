@@ -209,7 +209,7 @@ const Index = () => {
           )}
           {step === 5 && (
             <ScreenWrapper key="sell5">
-              <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
+              <SellConclusion onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
