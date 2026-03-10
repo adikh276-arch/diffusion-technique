@@ -159,7 +159,7 @@ const Index = () => {
                   type="text"
                   value={thought}
                   onChange={(e) => setThought(e.target.value)}
-                  placeholder='"I\'m not good enough"'
+                  placeholder="I'm not good enough"
                   className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6"
                 />
                 <PrimaryButton onClick={() => setStep(3)} disabled={!thought.trim()}>Continue →</PrimaryButton>
