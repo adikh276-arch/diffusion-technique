@@ -219,7 +219,7 @@ const Index = () => {
 
   // NAME THE STORY EXERCISE
   if (view === "name") {
-    const totalSteps = 4;
+    const totalSteps = 5;
     return (
       <div className="min-h-screen py-8" style={{ background: "linear-gradient(180deg, #EEF2FF, #E6F4FF)" }}>
         {renderNav()}
