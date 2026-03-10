@@ -1,6 +1,5 @@
 {
   "nav_activity": "活動",
-  "nav_history": "歴史",
   "sky_title": "空と雲",
   "sky_intro_1": "あなたの心を広く開いた空として想像してください。",
   "sky_intro_2": "思考は通り過ぎる雲のようなものです。",
@@ -58,7 +57,7 @@
   "conclusion_sell_desc1": "心に浮かぶ考えのすべてが注目に値するわけではありません。",
   "conclusion_sell_desc2": "その価値を評価することで、あなたはその考えを自動的に信じるのではなく、一歩下がってその考えに疑問を投げかける練習をしました。",
   "conclusion_sell_desc3": "時には、考えは説得力があるように聞こえますが、必ずしも信じる価値があるわけではありません。",
-  "conclusion_name_title": "物語に名前をつけたのはあなた",
+  "conclusion_name_title": "物語に名前をつけました",
   "conclusion_name_desc1": "私たちの心は同じ物語を何度も繰り返します。",
   "conclusion_name_desc2": "考えに名前を付けることで、その考えに囚われるのではなく、その考えを認識する練習をしました。",
   "conclusion_name_desc3": "次回にそれが表示されたら、次のことに気付くだけです:",
@@ -75,8 +74,6 @@
   "card_sell_desc": "自分の考えを、売りつけられた物のように扱ってください。本当に価値があるのでしょうか？",
   "card_name_desc": "思考が何度も繰り返されると、それは物語になります。物語に名前を付けることで、そこから距離を置くことができます。",
   "btn_start_exercise": "エクササイズを始める →",
-  "history_title": "歴史",
-  "history_empty": "まだ完了したアクティビティはありません。履歴を確認するには、こちらの方法をお試しください。",
   "btn_back_to_home": "ホームに戻る",
   "label_thought": "考え：",
   "label_reflection": "反射："

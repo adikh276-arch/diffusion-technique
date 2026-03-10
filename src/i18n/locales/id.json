@@ -1,6 +1,5 @@
 {
   "nav_activity": "Aktivitas",
-  "nav_history": "Sejarah",
   "sky_title": "Langit dan Awan",
   "sky_intro_1": "Bayangkan pikiranmu sebagai langit yang luas dan terbuka.",
   "sky_intro_2": "Pikiran itu seperti awan yang lewat.",
@@ -58,7 +57,7 @@
   "conclusion_sell_desc1": "Tidak setiap pikiran yang muncul di benak kita layak mendapat perhatian kita.",
   "conclusion_sell_desc2": "Dengan mengevaluasi nilainya, Anda berlatih untuk mundur sejenak dan mempertanyakan pemikiran tersebut alih-alih langsung mempercayainya.",
   "conclusion_sell_desc3": "Terkadang, suatu pemikiran terdengar meyakinkan—tetapi tidak selalu layak dipercaya.",
-  "conclusion_name_title": "Anda yang Memberi Judul Cerita Ini",
+  "conclusion_name_title": "Anda yang Memberi Nama Cerita Itu",
   "conclusion_name_desc1": "Pikiran kita sering kali mengulang cerita yang sama berulang kali.",
   "conclusion_name_desc2": "Dengan memberi nama pada pikiran tersebut, Anda berlatih mengenali cerita tersebut alih-alih terjebak di dalamnya.",
   "conclusion_name_desc3": "Lain kali muncul, Anda cukup memperhatikan:",
@@ -72,11 +71,9 @@
   "choose_title": "Pilih Teknik untuk Dipraktikkan",
   "choose_desc": "Setiap latihan membantu Anda melihat pikiran Anda dari perspektif baru. Pilih salah satu dan ikuti langkah-langkah yang diberikan.",
   "card_sky_desc": "Bayangkan pikiranmu melayang di langit seperti awan. Perhatikan pikiran-pikiran itu muncul dan berlalu tanpa menahannya.",
-  "card_sell_desc": "Anggaplah pemikiran Anda seperti sesuatu yang dijual kepada Anda. Seberapa berhargakah pemikiran itu sebenarnya?",
+  "card_sell_desc": "Anggaplah pikiran Anda seperti sesuatu yang dijual kepada Anda. Seberapa berhargakah pikiran itu sebenarnya?",
   "card_name_desc": "Ketika pikiran berulang-ulang, pikiran itu menjadi sebuah cerita. Menyebutkan nama cerita tersebut membantu menciptakan jarak darinya.",
   "btn_start_exercise": "Mulai Berolahraga →",
-  "history_title": "Sejarah",
-  "history_empty": "Belum ada aktivitas yang diselesaikan. Coba teknik untuk melihat riwayat Anda di sini.",
   "btn_back_to_home": "Kembali ke Beranda",
   "label_thought": "Pikiran:",
   "label_reflection": "Cerminan:"

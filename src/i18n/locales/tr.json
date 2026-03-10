@@ -1,6 +1,5 @@
 {
   "nav_activity": "Aktivite",
-  "nav_history": "Tarih",
   "sky_title": "Gökyüzü ve Bulut",
   "sky_intro_1": "Zihninizi uçsuz bucaksız bir gökyüzü olarak hayal edin.",
   "sky_intro_2": "Düşünceler, gelip geçen bulutlar gibidir.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Düşüncelerinizi size satılan bir şey gibi ele alın. Gerçekten ne kadar değerli?",
   "card_name_desc": "Düşünceler tekrar tekrar çağrıldığında, hikâyeye dönüşürler. Hikâyeye bir isim vermek, ondan uzaklaşmaya yardımcı olur.",
   "btn_start_exercise": "Egzersize Başla →",
-  "history_title": "Tarih",
-  "history_empty": "Henüz hiçbir etkinlik tamamlanmadı. Geçmişinizi görmek için bir teknik deneyin.",
   "btn_back_to_home": "Ana sayfaya geri dön",
   "label_thought": "Düşünce:",
   "label_reflection": "Refleks:"

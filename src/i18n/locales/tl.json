@@ -1,6 +1,5 @@
 {
   "nav_activity": "Aktibidad",
-  "nav_history": "Kasaysayan",
   "sky_title": "Langit at Ulap",
   "sky_intro_1": "Isipin ang iyong isipan bilang isang malawak na bukas na kalangitan.",
   "sky_intro_2": "Ang mga iniisip ay parang mga ulap na dumadaan.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Ituring ang iyong kaisipan na parang isang bagay na ibinebenta sa iyo. Gaano nga ba ito kahalaga?",
   "card_name_desc": "Kapag paulit-ulit na nauulit ang mga iniisip, nagiging mga kuwento ang mga ito. Ang pagpapangalan sa kuwento ay nakakatulong na lumikha ng distansya mula rito.",
   "btn_start_exercise": "Simulan ang Ehersisyo →",
-  "history_title": "Kasaysayan",
-  "history_empty": "Wala pang mga aktibidad na nakumpleto. Subukan ang isang pamamaraan upang makita ang iyong kasaysayan dito.",
   "btn_back_to_home": "Balik sa Bahay",
   "label_thought": "Kaisipan:",
   "label_reflection": "Repleksyon:"

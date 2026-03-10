@@ -1,6 +1,5 @@
 {
   "nav_activity": "Atividade",
-  "nav_history": "História",
   "sky_title": "Céu e Nuvem",
   "sky_intro_1": "Imagine sua mente como um céu aberto e vasto.",
   "sky_intro_2": "Os pensamentos são como nuvens que passam.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Trate seus pensamentos como se fossem algo que lhe está sendo vendido. Qual é o seu verdadeiro valor?",
   "card_name_desc": "Quando os pensamentos se repetem várias vezes, eles se transformam em histórias. Dar um nome à história ajuda a criar um distanciamento dela.",
   "btn_start_exercise": "Iniciar exercício →",
-  "history_title": "História",
-  "history_empty": "Nenhuma atividade concluída ainda. Experimente uma técnica para ver seu histórico aqui.",
   "btn_back_to_home": "Voltar para a página inicial",
   "label_thought": "Pensamento:",
   "label_reflection": "Reflexão:"

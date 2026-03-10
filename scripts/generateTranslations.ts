@@ -11,7 +11,6 @@ const languages = [
 
 const sourceStrings = {
     "nav_activity": "Activity",
-    "nav_history": "History",
     "sky_title": "Sky and Cloud",
     "sky_intro_1": "Imagine your mind as a wide open sky.",
     "sky_intro_2": "Thoughts are like clouds passing through.",
@@ -86,8 +85,6 @@ const sourceStrings = {
     "card_sell_desc": "Treat your thought like something being sold to you. How valuable is it really?",
     "card_name_desc": "When thoughts repeat again and again, they become stories. Naming the story helps create distance from it.",
     "btn_start_exercise": "Start Exercise →",
-    "history_title": "History",
-    "history_empty": "No activities completed yet. Try a technique to see your history here.",
     "btn_back_to_home": "Back to Home",
     "label_thought": "Thought:",
     "label_reflection": "Reflection:"

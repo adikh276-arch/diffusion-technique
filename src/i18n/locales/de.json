@@ -1,6 +1,5 @@
 {
   "nav_activity": "Aktivität",
-  "nav_history": "Geschichte",
   "sky_title": "Himmel und Wolken",
   "sky_intro_1": "Stell dir deinen Geist wie einen weiten, offenen Himmel vor.",
   "sky_intro_2": "Gedanken sind wie vorüberziehende Wolken.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Behandle deine Gedanken wie etwas, das dir verkauft werden soll. Wie wertvoll sind sie wirklich?",
   "card_name_desc": "Wenn sich Gedanken immer wiederholen, werden sie zu Geschichten. Die Geschichte zu benennen hilft, Distanz zu ihr zu schaffen.",
   "btn_start_exercise": "Übung starten →",
-  "history_title": "Geschichte",
-  "history_empty": "Bisher wurden noch keine Aktivitäten abgeschlossen. Versuchen Sie eine Technik, um Ihren Verlauf hier anzuzeigen.",
   "btn_back_to_home": "Zurück zur Startseite",
   "label_thought": "Gedanke:",
   "label_reflection": "Spiegelung:"

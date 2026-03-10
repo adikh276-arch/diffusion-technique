@@ -1,6 +1,5 @@
 {
   "nav_activity": "Hoạt động",
-  "nav_history": "Lịch sử",
   "sky_title": "Bầu trời và mây",
   "sky_intro_1": "Hãy tưởng tượng tâm trí bạn như một bầu trời rộng mở.",
   "sky_intro_2": "Suy nghĩ giống như những đám mây trôi qua.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Hãy coi suy nghĩ của bạn như một món hàng đang được bán cho bạn. Nó thực sự có giá trị bao nhiêu?",
   "card_name_desc": "Khi những suy nghĩ cứ lặp đi lặp lại, chúng trở thành những câu chuyện. Việc đặt tên cho câu chuyện giúp tạo ra khoảng cách với nó.",
   "btn_start_exercise": "Bắt đầu bài tập →",
-  "history_title": "Lịch sử",
-  "history_empty": "Chưa hoàn thành hoạt động nào. Hãy thử một kỹ thuật để xem lịch sử của bạn tại đây.",
   "btn_back_to_home": "Trở về Trang chủ",
   "label_thought": "Nghĩ:",
   "label_reflection": "Sự phản xạ:"

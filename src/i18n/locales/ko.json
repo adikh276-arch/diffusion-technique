@@ -1,6 +1,5 @@
 {
   "nav_activity": "활동",
-  "nav_history": "역사",
   "sky_title": "하늘과 구름",
   "sky_intro_1": "당신의 마음을 드넓은 하늘이라고 상상해 보세요.",
   "sky_intro_2": "생각은 마치 지나가는 구름과 같다.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "당신의 생각을 마치 당신에게 팔리는 상품처럼 생각해 보세요. 그 생각은 실제로 얼마나 가치가 있을까요?",
   "card_name_desc": "생각이 반복되면 이야기가 된다. 그 이야기에 이름을 붙이는 것은 그 이야기로부터 거리를 두는 데 도움이 된다.",
   "btn_start_exercise": "운동 시작 →",
-  "history_title": "역사",
-  "history_empty": "아직 완료된 활동이 없습니다. 여기에서 활동 내역을 확인하는 방법을 시도해 보세요.",
   "btn_back_to_home": "홈으로 돌아가기",
   "label_thought": "생각:",
   "label_reflection": "반사:"

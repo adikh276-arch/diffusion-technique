@@ -8,10 +8,8 @@ import { ProgressBar } from "@/components/ProgressBar";
 import { FullScreenSky } from "@/components/FullScreenSky";
 import { MoneySlider } from "@/components/MoneySlider";
 import { StoryNamingScreen } from "@/components/StoryNamingScreen";
-import { HistoryTab } from "@/components/HistoryTab";
-import { addHistory } from "@/lib/historyStore";
 
-type View = "intro" | "choose" | "history" | "sky" | "sell" | "name";
+type View = "intro" | "choose" | "sky" | "sell" | "name";
 
 const Index = () => {
   const { t } = useTranslation();
@@ -31,34 +29,21 @@ const Index = () => {
   };
 
   const finishExercise = (technique: string) => {
-    addHistory({ technique, thought, reflection });
+    // History collection removed
   };
 
   const renderNav = () => (
-    <div className="flex justify-center gap-4 mb-6">
+    <div className="flex justify-center mb-6">
       <button
         onClick={() => { reset(); setView("intro"); }}
-        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${view !== "history" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+        className="px-4 py-2 rounded-lg text-sm font-medium bg-primary text-primary-foreground transition-colors"
       >
         {t('nav_activity')}
-      </button>
-      <button
-        onClick={() => setView("history")}
-        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${view === "history" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
-      >
-        {t('nav_history')}
       </button>
     </div>
   );
 
-  if (view === "history") {
-    return (
-      <div className="min-h-screen py-8" style={{ background: "linear-gradient(180deg, #EEF2FF, #E6F4FF)" }}>
-        {renderNav()}
-        <HistoryTab onBack={() => { reset(); setView("intro"); }} />
-      </div>
-    );
-  }
+
 
   // SKY AND CLOUD EXERCISE
   if (view === "sky") {

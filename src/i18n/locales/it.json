@@ -1,6 +1,5 @@
 {
   "nav_activity": "Attività",
-  "nav_history": "Storia",
   "sky_title": "Cielo e nuvole",
   "sky_intro_1": "Immagina la tua mente come un cielo aperto.",
   "sky_intro_2": "I pensieri sono come nuvole che passano.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Tratta il tuo pensiero come se ti stesse vendendo qualcosa. Quanto è realmente prezioso?",
   "card_name_desc": "Quando i pensieri si ripetono più e più volte, diventano storie. Dare un nome alla storia aiuta a creare distanza da essa.",
   "btn_start_exercise": "Inizia l'esercizio →",
-  "history_title": "Storia",
-  "history_empty": "Nessuna attività completata. Prova una tecnica per visualizzare la tua cronologia qui.",
   "btn_back_to_home": "Torna alla Home",
   "label_thought": "Pensiero:",
   "label_reflection": "Riflessione:"

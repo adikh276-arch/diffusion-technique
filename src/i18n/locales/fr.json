@@ -1,6 +1,5 @@
 {
   "nav_activity": "Activité",
-  "nav_history": "Histoire",
   "sky_title": "Ciel et nuages",
   "sky_intro_1": "Imaginez votre esprit comme un ciel immense et ouvert.",
   "sky_intro_2": "Les pensées sont comme des nuages qui passent.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Considérez votre pensée comme un produit qu'on vous vend. Quelle est sa valeur réelle ?",
   "card_name_desc": "Lorsque les pensées se répètent sans cesse, elles deviennent des histoires. Nommer l'histoire permet de prendre du recul.",
   "btn_start_exercise": "Commencer l'exercice →",
-  "history_title": "Histoire",
-  "history_empty": "Aucune activité n'a encore été effectuée. Essayez une méthode pour consulter votre historique ici.",
   "btn_back_to_home": "Retour à l'accueil",
   "label_thought": "Pensée:",
   "label_reflection": "Réflexion:"

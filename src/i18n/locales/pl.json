@@ -1,6 +1,5 @@
 {
   "nav_activity": "Działalność",
-  "nav_history": "Historia",
   "sky_title": "Niebo i chmury",
   "sky_intro_1": "Wyobraź sobie swój umysł jako szeroko otwarte niebo.",
   "sky_intro_2": "Myśli są jak przepływające chmury.",
@@ -33,7 +32,7 @@
   "sell_result_mid_desc1": "Ta myśl ma pewną siłę przekonywania, ale nie wyczerpuje tematu.",
   "sell_result_mid_desc2": "Zwrócenie na to uwagi to pierwszy krok w kierunku zyskania perspektywy.",
   "sell_result_high_title": "Przekonująca myśl",
-  "sell_result_high_desc1": "Ta myśl w tej chwili wydaje się przekonująca.",
+  "sell_result_high_desc1": "Ta myśl wydaje się teraz przekonująca.",
   "sell_result_high_desc2": "Zauważenie tego jest pierwszym krokiem do odejścia od tego.",
   "name_title": "Nazwij historię",
   "name_intro_1": "Nasz umysł często powtarza te same myśli w kółko.",
@@ -75,8 +74,6 @@
   "card_sell_desc": "Potraktuj swoją myśl jak coś, co jest ci sprzedawane. Jaką wartość ona naprawdę ma?",
   "card_name_desc": "Kiedy myśli powtarzają się w kółko, stają się historiami. Nadanie nazwy historii pomaga zbudować do niej dystans.",
   "btn_start_exercise": "Rozpocznij ćwiczenie →",
-  "history_title": "Historia",
-  "history_empty": "Brak ukończonych aktywności. Wypróbuj tę technikę, aby zobaczyć swoją historię tutaj.",
   "btn_back_to_home": "Powrót do strony głównej",
   "label_thought": "Myśl:",
   "label_reflection": "Odbicie:"
