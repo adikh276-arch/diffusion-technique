@@ -4,7 +4,9 @@ import { ScreenWrapper } from "@/components/ScreenWrapper";
 import { ActivityCard } from "@/components/ActivityCard";
 import { PrimaryButton } from "@/components/PrimaryButton";
 import { ProgressBar } from "@/components/ProgressBar";
-import { CloudAnimation } from "@/components/CloudAnimation";
+import { FullScreenSky } from "@/components/FullScreenSky";
+import { MoneySlider } from "@/components/MoneySlider";
+import { StoryNamingScreen } from "@/components/StoryNamingScreen";
 import { HistoryTab } from "@/components/HistoryTab";
 import { addHistory } from "@/lib/historyStore";
 
@@ -15,14 +17,14 @@ const Index = () => {
   const [step, setStep] = useState(1);
   const [thought, setThought] = useState("");
   const [reflection, setReflection] = useState("");
-  const [sellAnswer, setSellAnswer] = useState("");
+  const [sellValue, setSellValue] = useState(50);
   const [storyName, setStoryName] = useState("");
 
   const reset = () => {
     setStep(1);
     setThought("");
     setReflection("");
-    setSellAnswer("");
+    setSellValue(50);
     setStoryName("");
   };
 
@@ -30,7 +32,7 @@ const Index = () => {
     addHistory({ technique, thought, reflection });
     reset();
     setView("choose");
-    setStep(7); // completion
+    setStep(7);
   };
 
   const renderNav = () => (
@@ -72,11 +74,11 @@ const Index = () => {
               <ActivityCard>
                 <div className="text-center mb-4"><span className="text-5xl">☁️</span></div>
                 <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">Sky and Cloud</h1>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Imagine your mind as a wide open sky.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Thoughts are like clouds passing through.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">They appear, move, and eventually fade away.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">You don't need to chase them or push them away.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-6">Just notice them.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">Imagine your mind as a wide open sky.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">Thoughts are like clouds passing through.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">Some are light and fluffy. Some are dark and stormy.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">But clouds always move on.</p>
+                <p className="text-base text-muted-foreground text-justify mb-6">Your job is simply to watch them pass.</p>
                 <PrimaryButton onClick={() => setStep(2)}>Begin Exercise</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
@@ -86,38 +88,27 @@ const Index = () => {
               <ProgressBar current={2} total={totalSteps} />
               <ActivityCard>
                 <h2 className="text-[22px] font-medium text-foreground text-center mb-4">What thought is on your mind right now?</h2>
-                <p className="text-base text-muted-foreground text-justify-all mb-4">Write one thought that has been bothering you lately.</p>
+                <p className="text-base text-muted-foreground text-justify mb-4">Write one thought that has been bothering you recently.</p>
                 <input
                   type="text"
                   value={thought}
                   onChange={(e) => setThought(e.target.value)}
-                  placeholder="Example: I'm not good enough"
+                  placeholder='Example: "I might fail this presentation"'
                   className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6"
                 />
-                <PrimaryButton onClick={() => setStep(3)} disabled={!thought.trim()}>Continue →</PrimaryButton>
+                <PrimaryButton onClick={() => setStep(3)} disabled={!thought.trim()}>Place it on a Cloud →</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
           )}
           {step === 3 && (
-            <ScreenWrapper key="sky3">
-              <ProgressBar current={3} total={totalSteps} />
-              <ActivityCard>
-                <h2 className="text-[22px] font-medium text-foreground text-center mb-4">Now place that thought on a cloud</h2>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Imagine your thought written on a soft cloud.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Watch it slowly move across the sky.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">You are not the cloud. You are the sky observing it.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Take a slow breath and imagine the cloud drifting further away.</p>
-                <CloudAnimation thought={thought} />
-                <PrimaryButton onClick={() => setStep(4)}>Next →</PrimaryButton>
-              </ActivityCard>
-            </ScreenWrapper>
+            <FullScreenSky key="sky3" thought={thought} onNext={() => setStep(4)} />
           )}
           {step === 4 && (
             <ScreenWrapper key="sky4">
               <ProgressBar current={4} total={totalSteps} />
               <ActivityCard>
                 <h2 className="text-[22px] font-medium text-foreground text-center mb-4">What did you notice?</h2>
-                <p className="text-base text-muted-foreground text-justify-all mb-4">How did it feel watching the thought instead of holding onto it?</p>
+                <p className="text-base text-muted-foreground text-justify mb-4">How did it feel watching the thought instead of holding onto it?</p>
                 <textarea
                   value={reflection}
                   onChange={(e) => setReflection(e.target.value)}
@@ -125,7 +116,7 @@ const Index = () => {
                   rows={3}
                   className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6 resize-none"
                 />
-                <PrimaryButton onClick={() => { finishExercise("Sky and Cloud"); setStep(5); }}>Finish Exercise →</PrimaryButton>
+                <PrimaryButton onClick={() => { finishExercise("Sky and Cloud"); setStep(5); }}>Finish Exercise</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
           )}
@@ -141,7 +132,7 @@ const Index = () => {
 
   // SELL THE THOUGHT EXERCISE
   if (view === "sell") {
-    const totalSteps = 4;
+    const totalSteps = 5;
     return (
       <div className="min-h-screen py-8" style={{ background: "linear-gradient(180deg, #EEF2FF, #E6F4FF)" }}>
         {renderNav()}
@@ -150,11 +141,11 @@ const Index = () => {
             <ScreenWrapper key="sell1">
               <ProgressBar current={1} total={totalSteps} />
               <ActivityCard>
-                <div className="text-center mb-4"><span className="text-5xl">💲</span></div>
+                <div className="text-center mb-4"><span className="text-5xl">💰</span></div>
                 <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">Sell the Thought</h1>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Sometimes our mind tries to sell us thoughts that are not very helpful.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">In this exercise you'll treat your thought like a product someone is trying to sell you.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-6">Let's see if it's actually worth buying.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">Sometimes our mind tries to sell us thoughts that feel very convincing.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">In this exercise you will treat your thought like a product someone is trying to sell you.</p>
+                <p className="text-base text-muted-foreground text-justify mb-6">Let's see how valuable it really is.</p>
                 <PrimaryButton onClick={() => setStep(2)}>Begin Exercise</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
@@ -168,7 +159,7 @@ const Index = () => {
                   type="text"
                   value={thought}
                   onChange={(e) => setThought(e.target.value)}
-                  placeholder="I'm going to fail"
+                  placeholder="I'm not good enough"
                   className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6"
                 />
                 <PrimaryButton onClick={() => setStep(3)} disabled={!thought.trim()}>Continue →</PrimaryButton>
@@ -179,20 +170,12 @@ const Index = () => {
             <ScreenWrapper key="sell3">
               <ProgressBar current={3} total={totalSteps} />
               <ActivityCard>
-                <h2 className="text-[22px] font-medium text-foreground text-center mb-4">Would you buy this thought?</h2>
-                <p className="text-base text-muted-foreground text-justify-all mb-4">If someone tried to sell you this thought, would you believe it?</p>
-                <div className="space-y-3 mb-6">
-                  {["Definitely not", "Maybe", "Probably"].map((opt) => (
-                    <button
-                      key={opt}
-                      onClick={() => setSellAnswer(opt)}
-                      className={`w-full py-3 px-4 rounded-lg border-2 text-left text-base font-medium transition-all ${sellAnswer === opt ? "border-primary bg-primary/10 text-foreground" : "border-input text-muted-foreground hover:border-primary/50"}`}
-                    >
-                      {opt}
-                    </button>
-                  ))}
+                <h2 className="text-[22px] font-medium text-foreground text-center mb-4">How much would this thought cost?</h2>
+                <p className="text-base text-muted-foreground text-justify mb-6">If someone tried to sell you this thought, how valuable would it actually be?</p>
+                <MoneySlider value={sellValue} onChange={setSellValue} />
+                <div className="mt-6">
+                  <PrimaryButton onClick={() => setStep(4)}>Next →</PrimaryButton>
                 </div>
-                <PrimaryButton onClick={() => setStep(4)} disabled={!sellAnswer}>Next →</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
           )}
@@ -200,14 +183,26 @@ const Index = () => {
             <ScreenWrapper key="sell4">
               <ProgressBar current={4} total={totalSteps} />
               <ActivityCard>
-                <h2 className="text-[22px] font-medium text-foreground text-center mb-4">What makes this thought believable or not?</h2>
-                <textarea
-                  value={reflection}
-                  onChange={(e) => setReflection(e.target.value)}
-                  placeholder="Optional reflection..."
-                  rows={3}
-                  className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6 resize-none"
-                />
+                <div className="text-center mb-4"><span className="text-5xl">{sellValue < 30 ? "🎯" : sellValue < 70 ? "🤔" : "💭"}</span></div>
+                {sellValue < 30 ? (
+                  <>
+                    <h2 className="text-[22px] font-medium text-foreground text-center mb-4">Not a great deal</h2>
+                    <p className="text-base text-muted-foreground text-justify mb-2">Looks like this thought may not be very valuable.</p>
+                    <p className="text-base text-muted-foreground text-justify mb-6">Sometimes our mind tries to sell us things we don't need to buy.</p>
+                  </>
+                ) : sellValue < 70 ? (
+                  <>
+                    <h2 className="text-[22px] font-medium text-foreground text-center mb-4">Worth considering</h2>
+                    <p className="text-base text-muted-foreground text-justify mb-2">This thought has some pull, but it's not the whole story.</p>
+                    <p className="text-base text-muted-foreground text-justify mb-6">Noticing it is the first step toward gaining perspective.</p>
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-[22px] font-medium text-foreground text-center mb-4">A convincing thought</h2>
+                    <p className="text-base text-muted-foreground text-justify mb-2">This thought feels convincing right now.</p>
+                    <p className="text-base text-muted-foreground text-justify mb-6">Noticing it is the first step toward gaining distance from it.</p>
+                  </>
+                )}
                 <PrimaryButton onClick={() => { finishExercise("Sell the Thought"); setStep(5); }}>Finish Exercise</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
@@ -235,10 +230,10 @@ const Index = () => {
               <ActivityCard>
                 <div className="text-center mb-4"><span className="text-5xl">📖</span></div>
                 <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">Name the Story</h1>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Our mind often repeats the same thoughts over and over.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Instead of fighting the thought, we can simply name the story our mind is telling us.</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-6">This makes it easier to step back from it.</p>
-                <PrimaryButton onClick={() => setStep(2)}>Begin</PrimaryButton>
+                <p className="text-base text-muted-foreground text-justify mb-2">Our mind often repeats the same thoughts again and again.</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">Instead of fighting them, we can simply name the story our mind is telling.</p>
+                <p className="text-base text-muted-foreground text-justify mb-6">This helps us notice the thought instead of getting caught in it.</p>
+                <PrimaryButton onClick={() => setStep(2)}>Begin Exercise</PrimaryButton>
               </ActivityCard>
             </ScreenWrapper>
           )}
@@ -251,7 +246,7 @@ const Index = () => {
                   type="text"
                   value={thought}
                   onChange={(e) => setThought(e.target.value)}
-                  placeholder="I always mess things up"
+                  placeholder='"I always mess things up"'
                   className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6"
                 />
                 <PrimaryButton onClick={() => setStep(3)} disabled={!thought.trim()}>Continue</PrimaryButton>
@@ -259,39 +254,28 @@ const Index = () => {
             </ScreenWrapper>
           )}
           {step === 3 && (
-            <ScreenWrapper key="name3">
-              <ProgressBar current={3} total={totalSteps} />
-              <ActivityCard>
-                <h2 className="text-[22px] font-medium text-foreground text-center mb-4">Give this thought a story name</h2>
-                <p className="text-sm text-muted-foreground text-justify-all mb-1">Example:</p>
-                <p className="text-sm text-muted-foreground text-justify-all mb-1">• The "I'm Not Good Enough" Story</p>
-                <p className="text-sm text-muted-foreground text-justify-all mb-4">• The "Everything Will Go Wrong" Story</p>
-                <input
-                  type="text"
-                  value={storyName}
-                  onChange={(e) => setStoryName(e.target.value)}
-                  placeholder="The '...' Story"
-                  className="w-full border border-input rounded-lg px-4 py-3 text-base text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 mb-6"
-                />
-                <PrimaryButton onClick={() => setStep(4)} disabled={!storyName.trim()}>Continue</PrimaryButton>
-              </ActivityCard>
-            </ScreenWrapper>
+            <StoryNamingScreen
+              key="name3"
+              storyName={storyName}
+              onStoryNameChange={setStoryName}
+              onContinue={() => setStep(4)}
+              currentStep={3}
+              totalSteps={totalSteps}
+            />
           )}
           {step === 4 && (
             <ScreenWrapper key="name4">
               <ProgressBar current={4} total={totalSteps} />
               <ActivityCard>
                 <h2 className="text-[22px] font-medium text-foreground text-center mb-4">Notice the story</h2>
-                <p className="text-base text-muted-foreground text-justify-all mb-2">Next time this thought appears, try saying:</p>
+                <p className="text-base text-muted-foreground text-justify mb-2">Next time this thought appears, try saying:</p>
                 <p className="text-base font-medium text-foreground text-center my-4 italic">"I'm noticing my mind telling the {storyName} again."</p>
-                <p className="text-base text-muted-foreground text-justify-all mb-6">This small shift helps create distance from the thought.</p>
-                <PrimaryButton onClick={() => { finishExercise("Name the Story"); setStep(5); }}>Finish Exercise</PrimaryButton>
+                <p className="text-base text-muted-foreground text-justify mb-6">This small shift helps you step back from the thought.</p>
+                <div className="space-y-3">
+                  <PrimaryButton onClick={() => { finishExercise("Name the Story"); }}>Try Another Technique</PrimaryButton>
+                  <PrimaryButton variant="outline" onClick={() => { reset(); setView("intro"); }}>Back to Techniques</PrimaryButton>
+                </div>
               </ActivityCard>
-            </ScreenWrapper>
-          )}
-          {step === 5 && (
-            <ScreenWrapper key="name5">
-              <CompletionScreen onTryAnother={() => { reset(); setView("choose"); }} onHome={() => { reset(); setView("intro"); }} />
             </ScreenWrapper>
           )}
         </AnimatePresence>
@@ -309,28 +293,27 @@ const Index = () => {
             <ActivityCard>
               <div className="text-center mb-4"><span className="text-5xl">🧠</span></div>
               <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">Diffusion Techniques</h1>
-              <p className="text-base text-muted-foreground text-justify-all mb-2">Sometimes our thoughts feel overwhelming because we treat them as facts.</p>
-              <p className="text-base text-muted-foreground text-justify-all mb-2">Diffusion techniques help you step back and observe your thoughts instead of getting caught in them.</p>
-              <p className="text-base text-muted-foreground text-justify-all mb-2">In this activity you'll practice simple exercises to help your mind create space from unhelpful thoughts.</p>
-              <p className="text-base text-muted-foreground text-justify-all mb-6">Choose a technique and try it.</p>
-              <PrimaryButton onClick={() => setView("choose")}>Start</PrimaryButton>
+              <p className="text-base text-muted-foreground text-justify mb-2">Sometimes our thoughts feel overwhelming because we treat them as facts.</p>
+              <p className="text-base text-muted-foreground text-justify mb-2">Diffusion techniques help you step back and observe thoughts instead of getting stuck in them.</p>
+              <p className="text-base text-muted-foreground text-justify mb-6">In this activity you will try simple exercises that help your mind create space from unhelpful thoughts.</p>
+              <PrimaryButton onClick={() => setView("choose")}>Start Activity</PrimaryButton>
             </ActivityCard>
           </ScreenWrapper>
         )}
         {view === "choose" && step !== 7 && (
           <ScreenWrapper key="choose">
             <h1 className="text-[32px] font-semibold text-foreground text-center mb-2">Choose a Technique to Practice</h1>
-            <p className="text-base text-muted-foreground text-center text-justify-all mb-6">Each technique helps you look at your thoughts from a different perspective. Pick one and follow the guided steps.</p>
+            <p className="text-base text-muted-foreground text-center text-justify mb-6">Each exercise helps you look at your thoughts from a new perspective. Pick one and follow the guided steps.</p>
             <div className="space-y-4">
               {[
-                { icon: "☁️", title: "Sky and Cloud", desc: "Imagine your thoughts as clouds drifting across the sky. Watch them come and go without holding on to them.", view: "sky" as View },
-                { icon: "💲", title: "Sell the Thought", desc: "Look at your thought like a product someone is trying to sell you. Is it actually useful or just convincing?", view: "sell" as View },
-                { icon: "📖", title: "Name the Story", desc: "Sometimes our mind repeats the same story again and again. Naming the story helps create distance from it.", view: "name" as View },
+                { icon: "☁️", title: "Sky and Cloud", desc: "Imagine your thoughts drifting across the sky like clouds. Watch them appear and pass by without holding onto them.", view: "sky" as View },
+                { icon: "💰", title: "Sell the Thought", desc: "Treat your thought like something being sold to you. How valuable is it really?", view: "sell" as View },
+                { icon: "📖", title: "Name the Story", desc: "When thoughts repeat again and again, they become stories. Naming the story helps create distance from it.", view: "name" as View },
               ].map((card) => (
                 <ActivityCard key={card.title}>
                   <div className="text-center mb-2"><span className="text-4xl">{card.icon}</span></div>
                   <h3 className="text-[22px] font-medium text-foreground text-center mb-2">{card.title}</h3>
-                  <p className="text-base text-muted-foreground text-justify-all mb-4">{card.desc}</p>
+                  <p className="text-base text-muted-foreground text-justify mb-4">{card.desc}</p>
                   <PrimaryButton onClick={() => { reset(); setView(card.view); }}>Start Exercise →</PrimaryButton>
                 </ActivityCard>
               ))}
@@ -352,9 +335,9 @@ function CompletionScreen({ onTryAnother, onHome }: { onTryAnother: () => void; 
     <ActivityCard>
       <div className="text-center mb-4"><span className="text-5xl">✨</span></div>
       <h1 className="text-[32px] font-semibold text-foreground text-center mb-4">Nice Work</h1>
-      <p className="text-base text-muted-foreground text-justify-all mb-2">Thoughts come and go just like clouds.</p>
-      <p className="text-base text-muted-foreground text-justify-all mb-2">The more you practice observing them, the less power they have over you.</p>
-      <p className="text-base text-muted-foreground text-justify-all mb-6">You just practiced diffusion.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">Thoughts come and go just like clouds.</p>
+      <p className="text-base text-muted-foreground text-justify mb-2">The more you practice observing them, the less power they have over you.</p>
+      <p className="text-base text-muted-foreground text-justify mb-6">You just practiced diffusion.</p>
       <div className="space-y-3">
         <PrimaryButton onClick={onTryAnother}>Try Another Technique</PrimaryButton>
         <PrimaryButton variant="outline" onClick={onHome}>Back to Home</PrimaryButton>

@@ -10,7 +10,7 @@ export function CloudAnimation({ thought }: CloudAnimationProps) {
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: ["-20%", "110%"], opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 8, ease: "easeInOut", times: [0, 0.1, 0.8, 1] }}
+        transition={{ duration: 10, ease: "easeInOut", times: [0, 0.1, 0.8, 1] }}
         className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center"
       >
         <div className="relative">
@@ -20,18 +20,17 @@ export function CloudAnimation({ thought }: CloudAnimationProps) {
           </span>
         </div>
       </motion.div>
-      {/* Extra decorative clouds */}
       <motion.span
         className="absolute text-4xl opacity-30"
         style={{ top: "15%", left: "60%" }}
         animate={{ x: [0, 40, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >☁️</motion.span>
       <motion.span
         className="absolute text-3xl opacity-20"
         style={{ top: "65%", left: "20%" }}
         animate={{ x: [0, -30, 0] }}
-        transition={{ duration: 7, repeat: Infinity }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       >☁️</motion.span>
     </div>
   );
